@@ -1,9 +1,17 @@
-// pages/index.js
+"use client";
+import React from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import Image from "next/image";
+import Navbar from '@/components/navbar'
 
 export default function Home() {
+  const { data: session, status } = useSession();
+
   return (
+    <>
+    <Navbar/>
     <main className="flex min-h-screen flex-col items-center justify-center bg-white p-8">
+      
       {/* Hero Section */}
       <div className="relative w-full max-w-7xl mx-auto text-center">
         <div className="relative z-10 py-14 px-8 md:py-10 lg:py-24">
@@ -30,6 +38,6 @@ export default function Home() {
         </p>
       </div>
     </main>
+    </>
   );
 }
-
